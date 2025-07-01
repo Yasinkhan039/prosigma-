@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staging | Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary-color: #dfa667;
+            --secondary-color: rgb(235, 153, 123);
+            --text-dark: #111111;
+            --text-light: white;
+            --text-gray: rgb(168, 162, 162);
+            --bg-light: rgb(243, 240, 240);
+            --font-main: 'Open Sans', sans-serif;
+            --font-heading: "Aldrich", sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-button {
+      background: none;
+      color: white;
+      padding: 19px 1px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 140px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        #nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: var(--text-light);
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .confusion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .confusion #p1 p {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+
+        .confusion #p2 p {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger i {
+            font-size: 1.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== CONTACT INFO SECTION ===== */
+        .contact-info {
+            padding: 120px 0 60px;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+
+        .section-title h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-method {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .contact-method:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60px;
+            background-color: var(--text-gray);
+            opacity: 0.3;
+        }
+
+        .contact-method img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .method-info h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .method-info p {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        /* ===== MAP & CONTACT FORM SECTION ===== */
+        .map-form-section {
+            padding: 60px 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 60px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            transition: var(--transition);
+        }
+
+        .form-textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        #footer {
+            background: url('./images/footer-bg.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            position: relative;
+            padding: 80px 0 30px;
+        }
+
+        #footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(hero-1.jpg);
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+        }
+
+        .newsletter {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: none;
+        }
+
+        .newsletter button {
+            width: 60px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .newsletter button:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: var(--text-light);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        .copyright a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legal-links a {
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .legal-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .confusion {
+                display: none;
+            }
+
+            .contact-method:not(:last-child)::after {
+                display: none;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-method {
+                padding: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 40px 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col a {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav id="nav">
+                <div class="logo">Staging</div>
+                <div class="menu" id="menu">
+                    <a href="index.html"  style="padding-top: 16px;">Home</a>
+                    <a href="project.html" style="padding-top: 16px;">Projects</a>
+                    <a href="about.html" style="padding-top: 16px;">About</a>
+                       <div class="drap">
+                 <a href="pages.html">
+                     <div class="dropdown">
+                    <button class="dropdown-button"><a href="" style="text-decoration: none; color: white; ">Pages</a></button>
+                        <div class="dropdown-content">
+                            <a href="project.html" style="color: #333;">Project Details</a>
+                            <a href="about.html" style="color: #333;">About</a>
+                            <a href="services.html" style="color: #333;">Services</a>
+                            <a href="blogdetails.html" style="color: #333;">Blog Details</a>
+                        </div>
+                </div>
+                </a></div>
+                    <a href="blog.html" style="padding-top: 16px;">Blog</a>
+                    <a href="contact.html" style="padding-top: 16px;">Contact</a>
+                </div>
+                <div class="confusion">
+                    <div id="p1">
+                        <p>Call us for any questions</p>
+                    </div>
+                    <div id="p2">
+                        <p>+01 123 456 789</p>
+                    </div>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-info">
+            <div class="container">
+                <div class="section-title">
+                    <h3>Information</h3>
+                    <h2>Contact Details</h2>
+                    <p>As you might expect of a company that began as a high-end interiors contractor, we pay strict attention.</p>
+                </div>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <img src="./ci-1.png.webp" alt="Phone">
+                        <div class="method-info">
+                            <h3>Phone Number</h3>
+                            <p>+01 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <img src="./ci-2.png.webp" alt="Email">
+                        <div class="method-info">
+                            <h3>Email Address</h3>
+                            <p>info.colorlib@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <img src="./ci-3.png.webp" alt="Location">
+                        <div class="method-info">
+                            <h3>Office Location</h3>
+                            <p>7176 Blue Spring Lane, NY, US</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-form-section">
+            <div class="container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3323.0635334098906!2d73.02374297569735!3d33.603655973329154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDM2JzEzLjIiTiA3M8KwMDEnMzQuNyJF!5e0!3m2!1sen!2s!4v1751095997431!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-form">
+                    <div class="section-title">
+                        <h3>Form</h3>
+                        <h2>Get in touch</h2>
+                        <p>As you might expect of a company that began as a high-end interiors contractor, we pay strict attention.</p>
+                    </div>
+                    <form>
+                        <div class="form-row">
+                            <input type="text" class="form-input" placeholder="Name" required>
+                            <input type="email" class="form-input" placeholder="Email" required>
+                        </div>
+                        <textarea class="form-textarea" placeholder="Message" required></textarea>
+                        <button type="submit" class="btn submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-cta">
+                        <h2>Ready To Work With Us?</h2>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="ri-send-plane-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="footer-grid">
+                        <div class="footer-col">
+                            <img src="./logo.png" alt="Staging logo">
+                            <p>7176 Blue Spring Lane</p>
+                            <p>Santa Monica, CA 90403</p>
+                            <p>Info.colorlib@gmail.com</p>
+                            <p>+84 123 456 789</p>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Company</h3>
+                            <a href="contact.html">About Us</a>
+                            <a href="contact.html">Services</a>
+                            <a href="contact.html">Our Works</a>
+                            <a href="contact.html">Career</a>
+                            <a href="contact.html">FAQs</a>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Services</h3>
+                            <a href="contact.html">Architecture</a>
+                            <a href="contact.html">Interior Design</a>
+                            <a href="contact.html">Exterior Design</a>
+                            <a href="contact.html">Planning</a>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Get In Touch</h3>
+                            <p>7176 Blue Spring Lane</p>
+                            <p>Santa Monica, CA 90403</p>
+                            <p>Info.colorlib@gmail.com</p>
+                            <p>+84 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="social-links">
+                            <a href="contact.html"><i class="ri-facebook-fill"></i></a>
+                            <a href="contact.html"><i class="ri-twitter-fill"></i></a>
+                            <a href="contact.html"><i class="ri-instagram-fill"></i></a>
+                            <a href="contact.html"><i class="ri-linkedin-fill"></i></a>
+                        </div>
+                        <div class="copyright">
+                            <p>Copyright © 2025 All rights reserved | This template is made with <i class="ri-heart-line"></i> by <a href="https://colorlib.com/">Colorlib</a></p>
+                        </div>
+                        <div class="legal-links">
+                            <a href="contact.html">Terms of use</a>
+                            <a href="contact.html">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>

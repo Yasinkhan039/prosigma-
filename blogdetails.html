@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staging | Blog Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+
+
+
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-button {
+      background: none;
+      color: white;
+      padding: 19px 1px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 140px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+        
+        
+        /* Navigation */
+        #nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #111;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: #111;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .menu a:hover {
+            color: #dfa667;
+        }
+        
+        .confusion {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #p1, #p2 {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Blog Content Section */
+        #pg11 {
+            width: 100%;
+            padding: 50px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .datp1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .head1 h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+        
+        .head1 img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .head1 p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .mm1 {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-left: 3px solid #dfa667;
+            margin: 40px 0;
+        }
+        
+        .mm1 p {
+            font-style: italic;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .mm1 h2 {
+            color: #dfa667;
+            font-size: 20px;
+        }
+        
+        .picp {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .picp1, .picp2, .picp3 {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .picp img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .tagpp1 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tagpp1 h2 {
+            font-size: 18px;
+            color: #111;
+        }
+        
+        .tagpp1 a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .tagpp1 a:hover {
+            color: #dfa667;
+        }
+        
+        .icons1 {
+            display: flex;
+            gap: 15px;
+            margin-left: auto;
+        }
+        
+        .icons1 a {
+            color: #666;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .icons1 a:hover {
+            color: #dfa667;
+        }
+        
+        .dana {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+        
+        .dana img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .danap1 h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .danap1 p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .mp1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .mp1 > div {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .mp1 img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .y, .y1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .y a, .y1 a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .y a:hover, .y1 a:hover {
+            color: #dfa667;
+        }
+        
+        .ya a, .ya1 a {
+            font-size: 18px;
+            color: #111;
+            font-weight: 500;
+        }
+        
+        /* Comment Form Section */
+        #pg12 {
+            width: 100%;
+            padding: 50px 5%;
+            background-color: #f8f8f8;
+        }
+        
+        .continer16 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .continer16 h2 {
+            font-size: 36px;
+            color: #111;
+        }
+        
+        .continer17 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .continer17 input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .continer18 input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            height: 150px;
+        }
+        
+        .continer19 button {
+            background-color: #dfa667;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .continer19 button:hover {
+            background-color: #c59155;
+        }
+        
+        /* Footer */
+        #pg9 {
+            width: 100%;
+            padding: 50px 5%;
+            background-image: url(hero-1.jpg);
+            color: white;
+        }
+        
+        .continer5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .continer5 h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        .mail {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .mail input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .mail i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #dfa667;
+        }
+        
+        .continer6 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .logoes, .menu2, .menu3, .menu4 {
+            width: 100%;
+            max-width: 250px;
+        }
+        
+        .logoes img {
+            width: 100%;
+            max-width: 150px;
+        }
+        
+        .menu2 h2, .menu3 h2, .menu4 h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .menu2 h3, .menu3 h3, .menu4 h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #999;
+        }
+        
+        .iconp4 {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .iconp4 a {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .continer7 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .continer7 a {
+            color: #dfa667;
+            text-decoration: none;
+        }
+        
+        .home1 {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .home1 a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        hr {
+            border-color: #333;
+            margin: 20px 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .head1 h2 {
+                font-size: 30px;
+            }
+            
+            .continer16 h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .menu {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .confusion {
+                margin-top: 15px;
+                text-align: center;
+            }
+            
+            .head1 h2 {
+                font-size: 26px;
+            }
+            
+            .mm1 p {
+                font-size: 16px;
+            }
+            
+            .picp {
+                flex-direction: column;
+            }
+            
+            .tagpp1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .icons1 {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .dana {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .head1 h2, .continer16 h2 {
+                font-size: 24px;
+            }
+            
+            .mm1 {
+                padding: 20px;
+            }
+            
+            .mp1 > div {
+                min-width: 100%;
+            }
+            
+            .continer17 input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="pg1">
+        <div id="nav">
+            <div class="logo">
+                Staging
+            </div>
+            <div class="menu">
+                <a href="index.html" style="padding-top: 20px;">Home</a>
+                <a href="project.html" style="padding-top: 20px;">Projects</a>
+                <a href="about.html" style="padding-top: 20px;">About</a>
+                <div class="drap">
+                 <a href="pages.html">
+                     <div class="dropdown">
+                    <button class="dropdown-button"><a href="" style="text-decoration: none; color: black ">Pages</a></button>
+                        <div class="dropdown-content">
+                            <a href="project.html">Project Details</a>
+                            <a href="about.html">About</a>
+                            <a href="services.html">Services</a>
+                            <a href="blogdetails.html">Blog Details</a>
+                        </div>
+                </div>
+                </a></div>
+                <a href="blog.html" style="padding-top: 20px;">Blog</a>
+                <a href="contact.html" style="padding-top: 20px;">Contact</a>
+            </div>
+            <div class="confusion">
+                <div id="p1">
+                    <p>Call us for any questions</p>
+                </div>
+                <div id="p2">
+                    <p>+01 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pg11">
+        <div class="datp1">
+            <h3>December 20, 2019</h3>
+            <h3>.</h3>
+            <h3> By John Doe</h3>
+            <h3>.</h3>
+            <h3> Planning</h3>
+        </div>
+        <div class="head1">
+            <h2>Target and Amazon Shopping List for Home Stagers</h2>
+            <img src="./project-2.jpg" alt="projectp2">
+            <p>Forget Ebay and other forms of advertising for your property that costs you hard earned money. Properties have ready several locations around the world to take your free listings for any luxury property you have.</p>
+            <p>Each location web site is purpose built so every Search Engine will pick up new listings within minutes. This way your customers only have to type in keywords relating to their search for a luxury home and the Search Engine will show the Invest Asset web site applicable to their location they are looking for.</p>
+            <p>Most real estate companies are way too busy with selling their client's properties to put any effort forth to their web site. Hence, making it difficult for web surfers to find their listings.</p>
+            
+            <div class="mm1">
+                <p>"Without question this is the stager you want to use! Jennifer staged a hard to sell home for me and we sold it fast! .... Jennifer made it possible."</p>
+                <h2>Martin Lockhart</h2>
+            </div>
+            
+            <p>Now times have changed and we at Investment Assets Properties are thinking of the customer before the business. If you have a property in a location not listed at Investment Assets Properties. Don't worry. A quick email to us will ensure your location is built to accommodate your listing.</p>
+            <p>Selling your luxury home, condominium or property should not be a painstaking event. It should be easy and stress free and it should be able to be advertised on a global scale for free. Investment Assets Properties can and will do this for you in a hassle free way.</p>
+            
+            <div class="picp">
+                <div class="picp1">
+                    <img src="./project-1.jpg" alt="project-1">
+                </div>
+                <div class="picp2">
+                    <img src="/proje.ct-3.jpg" alt="project-2">
+                </div>
+                <div class="picp3">
+                    <img src="./project-4.jpg" alt="project-3">
+                </div>
+            </div>
+            
+            <div class="tagpp1">
+                <h2>Tags:</h2>
+                <a href="blogdetails.html">Branding</a>
+                <a href="blogdetails.html">.</a>
+                <a href="blogdetails.html">Office</a>
+                <a href="blogdetails.html">.</a>
+                <a href="blogdetails.html">Creative</a>
+                
+                <div class="icons1">
+                    <a href="blogdetails.html"><i class="ri-facebook-fill"></i></a>
+                    <a href="blogdetails.html"><i class="ri-twitter-fill"></i></a>
+                    <a href="blogdetails.html"><i class="ri-instagram-fill"></i></a>
+                    <a href="blogdetails.html"><i class="ri-linkedin-fill"></i></a>
+                </div>
+            </div>
+            
+            <div class="dana">
+                <img src="./blog-about.png.webp" alt="ta.1">
+                <div class="danap1">
+                    <h3>Dana Vaughn</h3>
+                    <p>Now times have changed and we at Investment Assets Properties are thinking of the customer before the business. If you have a property in a location not listed at Investment Assets Properties.</p>
+                </div>
+            </div>
+            
+            <div class="mp1">
+                <div class="y">
+                    <a href="blogdetails.html"><i class="ri-arrow-left-double-line"></i>Previous Post</a>
+                    <div class="ya">
+                        <a href="blogdetails.html">Popular Uses Of The Internet</a>
+                    </div>
+                </div>
+                <div class="y1">
+                    <a href="blogdetails.html">Next Post<i class="ri-arrow-right-double-fill"></i></a>
+                    <div class="ya1">
+                        <a href="blogdetails.html">Help Finding Information Online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pg12">
+        <div class="continer16">
+            <h2>LEAVEL A REPLY</h2>
+        </div>
+        <div class="continer17">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Phone Number">
+        </div>
+        <div class="continer18">
+            <input type="text" placeholder="Message">
+        </div>
+        <div class="continer19">
+            <button>Send Message</button>
+        </div>
+    </div>
+
+    <div id="pg9">
+        <div class="continer5">
+            <h2>Ready To Work With Us?</h2>
+            <div class="mail">
+                <input type="email" id="enaile" email="email" placeholder="Enter your email"><i class="ri-send-plane-fill"></i>
+            </div>
+        </div>
+        <hr>
+        <div class="continer6">
+            <div class="logoes">
+                <img src="./logo.png" alt="staging .">
+                <h3>7176 Blue Spring Lane</h3>
+                <h3>Santa Monica, CA 90403</h3>
+                <h3>Info.colorlib@gmail.com</h3>
+                <h3>+84 123 456 789</h3>
+            </div>
+            <div class="menu2">
+                <h2>Company</h2>
+                <h3>About Us</h3>
+                <h3>Services</h3>
+                <h3>Our Works</h3>
+                <h3>Career</h3>
+                <h3>FAQs</h3>
+            </div>
+            <div class="menu3">
+                <h2>Services</h2>
+                <h3>Architecture</h3>
+                <h3>Interior Design</h3>
+                <h3>Exterior Design</h3>
+                <h3>Planning</h3>
+            </div>
+            <div class="menu4">
+                <h2>Get In Touch</h2>
+                <h3>7176 Blue Spring Lane</h3>
+                <h3>Santa Monica, CA 90403</h3>
+                <h3>Info.colorlib@gmail.com</h3>
+                <h3>+84 123 456 789</h3>
+            </div>
+        </div>
+        <div class="iconp4">
+            <a href="blogdetails.html"><i class="ri-facebook-fill"></i></a>
+            <a href="blogdetails.html"><i class="ri-twitter-fill"></i></a>
+            <a href="blogdetails.html"><i class="ri-instagram-fill"></i></a>
+            <a href="blogdetails.html"><i class="ri-linkedin-fill"></i></a>
+        </div>
+        <hr>
+        <div class="continer7">
+            <p>Copyright © 2025 All rights reserved | This template is made with by</p>
+            <i class="ri-heart-line"></i> 
+            <a href="https://colorlib.com/">Colorlib</a>
+        </div>
+        <div class="home1">
+            <a href="blogdetails.html">Terms of use</a>
+            <a href="blogdetails.html"> | </a>
+            <a href="blogdetails.html">Privacy Policy</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staging | Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+
+
+
+
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary-color: #dfa667;
+            --secondary-color: rgb(235, 153, 123);
+            --text-dark: #111111;
+            --text-light: white;
+            --text-gray: rgb(168, 162, 162);
+            --bg-light: rgb(243, 240, 240);
+            --font-main: 'Open Sans', sans-serif;
+            --font-heading: "Aldrich", sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-button {
+      background: none;
+      color: white;
+      padding: 19px 1px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 140px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        #nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: var(--text-light);
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .confusion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .confusion #p1 p {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+
+        .confusion #p2 p {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger i {
+            font-size: 1.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            background: url('./hero-1.jpg') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .hero-content h3 {
+            font-size: 1rem;
+        }
+
+        .hero-content h3 a {
+            transition: var(--transition);
+        }
+
+        .hero-content h3 a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-section {
+            padding: 80px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover img {
+            opacity: 0.9;
+        }
+
+        .project-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-info p {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            color: var(--text-dark);
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .load-more a {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 10px 30px;
+            border: 2px solid var(--text-dark);
+            border-radius: 5px;
+        }
+
+        .load-more a:hover {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+        }
+
+        /* ===== FOOTER ===== */
+        #footer {
+            background: url('./images/footer-bg.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            position: relative;
+            padding: 80px 0 30px;
+        }
+
+        #footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(hero-1.jpg);
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-family: var(--font-heading);
+        }
+
+        .newsletter {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: none;
+        }
+
+        .newsletter button {
+            width: 60px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .newsletter button:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: var(--text-light);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        .copyright a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legal-links a {
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .legal-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .confusion {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col a {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav id="nav">
+                <div class="logo">Staging</div>
+                <div class="menu"  id="menu">
+                    <a href="index.html" style="padding-top: 14px;">Home</a>
+                    <a href="project.html" style="padding-top: 14px;">Projects</a>
+                    <a href="about.html" style="padding-top: 14px;">About</a>
+                       <div class="drap">
+                 <a href="pages.html">
+                     <div class="dropdown">
+                    <button class="dropdown-button"><a href="" style="text-decoration: none; color: white; ">Pages</a></button>
+                        <div class="dropdown-content">
+                            <a href="project.html" style="color: #111111;padding-left: 8px;">Project Details</a>
+                            <a href="about.html"  style="color: #111111; padding-left: 8px;">About</a>
+                            <a href="services.html"  style="color: #111111; padding-left: 8px;">Services</a>
+                            <a href="blogdetails.html"  style="color: #111111; padding-left: 5px;">Blog Details</a>
+                        </div>
+                </div>
+                </a></div>
+                    <a href="blog.html" style="padding-top: 14px;">Blog</a>
+                    <a href="contact.html" style="padding-top: 14px;">Contact</a>
+                </div>
+                <div class="confusion">
+                    <div id="p1">
+                        <p>Call us for any questions</p>
+                    </div>
+                    <div id="p2">
+                        <p>+01 123 456 789</p>
+                    </div>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Our <a href="project.html">Projects</a> </h1>
+                    <h3><a href="index.html">Home</a><a href="project.html" style="color: #dfa667;" > ~ Projects</a></h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="./project-p1.jpg.webp" alt="Office Building">
+                        <div class="project-info">
+                            <p>Office Building</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="./project-p2.jpg.webp" alt="Furniture Decorative">
+                        <div class="project-info">
+                            <p>Furniture Decorative</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="./project-p2.jpg.webp" alt="Interior Design">
+                        <div class="project-info">
+                            <p>Interior Design</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="./project-p4.jpg.webp" alt="Home Building">
+                        <div class="project-info">
+                            <p>Home Building</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="./about-pic.jpg.webp" alt="Decoration">
+                        <div class="project-info">
+                            <p>Decoration</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="./project-3.jpg" alt="Furniture">
+                        <div class="project-info">
+                            <p>Furniture</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="load-more">
+                    <a href="project.html">Load More</a>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-cta">
+                        <h2>Ready To Work With Us?</h2>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Enter your email">
+                            <button><i class="ri-send-plane-fill"></i></button>
+                        </div>
+                    </div>
+                    <div class="footer-grid">
+                        <div class="footer-col">
+                            <img src="./logo.png" alt="Staging logo">
+                            <p>7176 Blue Spring Lane</p>
+                            <p>Santa Monica, CA 90403</p>
+                            <p>Info.colorlib@gmail.com</p>
+                            <p>+84 123 456 789</p>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Company</h3>
+                            <a href="project.html">About Us</a>
+                            <a href="project.html">Services</a>
+                            <a href="project.html">Our Works</a>
+                            <a href="project.html">Career</a>
+                            <a href="project.html">FAQs</a>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Services</h3>
+                            <a href="project.html">Architecture</a>
+                            <a href="project.html">Interior Design</a>
+                            <a href="project.html">Exterior Design</a>
+                            <a href="project.html">Planning</a>
+                        </div>
+                        <div class="footer-col">
+                            <h3>Get In Touch</h3>
+                            <p>7176 Blue Spring Lane</p>
+                            <p>Santa Monica, CA 90403</p>
+                            <p>Info.colorlib@gmail.com</p>
+                            <p>+84 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="social-links">
+                            <a href="project.html"><i class="ri-facebook-fill"></i></a>
+                            <a href="project.html"><i class="ri-twitter-fill"></i></a>
+                            <a href="project.html"><i class="ri-instagram-fill"></i></a>
+                            <a href="project.html"><i class="ri-linkedin-fill"></i></a>
+                        </div>
+                        <div class="copyright">
+                            <p>Copyright © 2025 All rights reserved | This template is made with <i class="ri-heart-line"></i> by <a href="https://colorlib.com/">Colorlib</a></p>
+                        </div>
+                        <div class="legal-links">
+                            <a href="project.html">Terms of use</a>
+                            <a href="project.html">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
